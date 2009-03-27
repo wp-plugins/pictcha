@@ -107,14 +107,14 @@ function verify($llna, $llur, $ipaddress = "")
 	if($ipaddress == "")
 	{
 		$ipaddress =getenv(REMOTE_ADDR);
-		echo $ipaddress. "|";
+		//echo $ipaddress. "|";
 	}
 	$llna = str_replace(" ","+",$llna);
 	$llur = str_replace(" ","+",$llur);
 	$cURL = 'http://utyp.net/check.php?llna='.$llna."&llur=".$llur."&lip=".$ipaddress ;
-	echo $cURL. "|";
+	//echo $cURL. "|";
 	$response=file_get_contents($cURL);
-	echo $response. "|";
+	//echo $response. "|";
 	if($response == "&found=1 ")
 	{
 		return 1;

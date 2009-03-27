@@ -1,7 +1,7 @@
 ﻿=== Pictcha ===
 Contributors: Gilemon
 Donate link: http://utyp.net/
-Tags: spam, antispam, anti-spam, comments, comment, captcha, clickcha, pictcha
+Tags: spam, antispam, anti-spam, comments, comment, captcha, pictcha
 Requires at least: 2.3
 Tested up to: 2.7.1
 Stable tag: trunk
@@ -22,7 +22,7 @@ When someone uses UTYP Pictcha the UTYP engine learns and gets more accurate.
 
 = How It Works =
 
-Clickcha generates image based CAPTCHAs which require the user to describe a random image. Clickcha is more secure than traditional text based CAPTCHAs which can be read via OCR programs.
+Pictcha generates image based CAPTCHAs which require the user to describe a random image. Pictcha is more secure than traditional text based CAPTCHAs which can be read via OCR programs.
 
 = Feedback =
 
@@ -32,7 +32,7 @@ Please let me know what you think about the plugin and any suggestions you may h
 
 == Installation ==
 
-1. Upload `clickcha.php` to the `/wp-content/plugins/` directory
+1. Upload `pictcha.php` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 `<?php do_action('comment_form', $post->ID); ?>`
@@ -41,7 +41,7 @@ Please let me know what you think about the plugin and any suggestions you may h
 
 == Frequently Asked Questions ==
 
-= How does Clickcha work? =
+= How does Pictcha work? =
 
 UTYP Pictcha is a protection in a form of an image retrieved from UTYP engine.
 
@@ -53,10 +53,6 @@ No.
 
 No, Pictcha does not use cookies.
 
-= What happens with pingbacks and trackbacks? =
-
-Clickcha does not filter pingbacks and trackbacks.
-
 = Does Pictcha support other languages? =
 
 Not at the moment but the design of UTYP engine is made to learn new languages as people from different countries use it. Also if you wish to help with the translations of the interface please write to gilemon at nthinking.net.
@@ -67,4 +63,4 @@ Let me know, I will try if its useful enough and I have time for it.
 
 == Screenshots ==
 
-1. Pictcha screenshot ([Try the live demo](http://utyp.net/pictcha-sample.php "Clickcha Demo"))
+1. Pictcha screenshot ([Try the live demo](http://utyp.net/pictcha-sample.php "Pictcha Demo"))

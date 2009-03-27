@@ -22,7 +22,7 @@ When someone uses UTYP Pictcha the UTYP engine learns and gets more accurate.
 
 = How It Works =
 
-Clickcha generates image based CAPTCHAs which require the user to click the image in a particular area to solve the puzzle. Clickcha is more secure than traditional text based CAPTCHAs which can be read via OCR programs.
+Clickcha generates image based CAPTCHAs which require the user to describe a random image. Clickcha is more secure than traditional text based CAPTCHAs which can be read via OCR programs.
 
 = Feedback =
 
@@ -59,7 +59,7 @@ Clickcha does not filter pingbacks and trackbacks.
 
 = Does Pictcha support other languages? =
 
-Not at the moment but multi-language support will be added soon. If you wish to help with the translations please write to developer at utype.net.
+Not at the moment but the design of UTYP engine is made to learn new languages as people from different countries use it. Also if you wish to help with the translations of the interface please write to gilemon at nthinking.net.
 
 = Can you add a feature X? =
 

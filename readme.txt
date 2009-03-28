@@ -1,4 +1,4 @@
-﻿=== Pictcha ===
+=== Pictcha ===
 Contributors: Gilemon
 Donate link: http://utyp.net/
 Tags: spam, antispam, anti-spam, comments, comment, captcha, pictcha
@@ -18,7 +18,7 @@ When someone uses UTYP Pictcha the UTYP engine learns and gets more accurate.
 = Features =
 
 1. Simple and ludic CAPTCHA .
-2. Recycles concentration and time involve in solving the problem to improve itself by learning from human users.
+2. Recycles concentration and time involved in solving the problem to improve itself by learning from human users.
 
 = How It Works =
 
@@ -32,12 +32,15 @@ Please let me know what you think about the plugin and any suggestions you may h
 
 == Installation ==
 
-1. Upload `pictcha.php` to the `/wp-content/plugins/` directory
+1. Upload 'pictcha.php' to the '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Choose Security_level
+
+*Note 1:* If you have Wordpress 2.7 or above you can simply go to 'Plugins' > 'Add New' in the Wordpress admin and search for "Pictcha" and install it from there.
+
+*Note 2:* If your WordPress theme doesn't have the 'comment_form' hook (i.e. Pictcha won't show up with the comment form), enter the following code right before the closing '</form>' tag in the 'comments.php' file of the theme.
 
 `<?php do_action('comment_form', $post->ID); ?>`
-
-*Note 2:* If you have Wordpress 2.7 or above you can simply to ‘Plugins’ > ‘Add New’ in the Wordpress admin and search for “pictcha” and install it from there.
 
 == Frequently Asked Questions ==
 

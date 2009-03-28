@@ -94,7 +94,7 @@ function get_picture($level="")
 	}
 	else
 	{
-		$response=file_get_contents('http://utyp.net/getwww2.php?session=1&level'.$level);
+		$response=file_get_contents('http://utyp.net/getwww2.php?session=1&level='.$level);
 	}
 	//echo $response. "|";
 	$matches = explode("=", trim($response));

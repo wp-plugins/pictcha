@@ -69,7 +69,7 @@ function pictcha_options_page() {
 	</table>
 	<table>
 		<tr>
-			<td>Security_level = how much the picture has been indentified, higher = more tags associated<br>40 is a good balance between risk and user-friendliness<br>Maximum is 200</td>
+			<td>Security_level = how much the picture has been indentified, higher = more tags associated<br>40 is a good balance between risk and user-friendliness<br>Maximum advised is 200<br>Minimum advised is 10</td>
 		</tr>
 	</table>
 	
@@ -90,15 +90,16 @@ function get_picture($level="")
 {
 	if($level == "")
 	{
-		$response=file_get_contents('http://utyp.net/getwww2.php?');
+		$response=file_get_contents('http://utyp.net/getwww2.php?session=1');
 	}
 	else
 	{
-		$response=file_get_contents('http://utyp.net/getwww2.php?'.$level);
+		$response=file_get_contents('http://utyp.net/getwww2.php?session=1&level'.$level);
 	}
-	$pattern = '/picor=(.+)/';
-	preg_match($pattern, $response, $matches);
-	return trim($matches[1]);
+	//echo $response. "|";
+	$matches = explode("=", trim($response));
+	$arra = array($matches[0],$matches[1]);
+	return $arra;
 }
 
 //verify keyword picture association
@@ -111,7 +112,7 @@ function verify($llna, $llur, $ipaddress = "")
 	}
 	$llna = str_replace(" ","+",$llna);
 	$llur = str_replace(" ","+",$llur);
-	$cURL = 'http://utyp.net/check.php?llna='.$llna."&llur=".$llur."&lip=".$ipaddress ;
+	$cURL = 'http://utyp.net/check.php?llna='.$llna."&llid=".$llur."&lip=".$ipaddress ;
 	//echo $cURL. "|";
 	$response=file_get_contents($cURL);
 	//echo $response. "|";
@@ -121,6 +122,10 @@ function verify($llna, $llur, $ipaddress = "")
 	}
 	else
 	{
+		if($response == "&found=2")
+		{
+			wp_die('Your Pictcha Session has Expired, try refreshing your browser.');
+		}
 		return 0;
 	}
 }
@@ -135,13 +140,15 @@ function pictcha_comment_form($post_id)
 	{
 		$security_level = 40;
 	}
-	$lapic = get_picture($security_level);
+	$arra = get_picture($security_level);
+	$lasess = $arra[0];
+	$lapic = $arra[1];
 ?>
 	<style type="text/css">
 	input#pictcha {height: auto; width: auto; border: 0}
 	#submit {display: none;}
 	</style>
-	<input type="hidden" name="pictureUrl" id="pictureUrl" value="<?php echo $lapic; ?>">
+	<input type="hidden" name="pictureUrl" id="pictureUrl" value="<?php echo $lasess; ?>">
 	<img src="<?php echo $lapic; ?>">
 	<br> Question: <a href="http://utyp.net/pictcha-help.html" target="help">What</a>'s this picture?<br>
 	<input type="text" id="inputOr" name="inputOr" SIZE="15" maxlength="25" /><br>

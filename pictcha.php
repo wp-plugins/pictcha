@@ -148,11 +148,63 @@ function pictcha_comment_form($post_id)
 	input#pictcha {height: auto; width: auto; border: 0}
 	#submit {display: none;}
 	</style>
+	
 	<input type="hidden" name="pictureUrl" id="pictureUrl" value="<?php echo $lasess; ?>">
-	<img src="<?php echo $lapic; ?>">
-	<br> Question: <a href="http://utyp.net/pictcha-help.html" target="help">What</a>'s this picture?<br>
+	<center><img src="<?php echo $lapic; ?>">
+	<script type="text/javascript">	
+	function openFrameless(){
+	var windowW=400 // wide
+	var windowH=500 // high
+	// set the screen position where the popup should appear
+	var windowX = (screen.width-windowW)/2;
+	var windowY = (screen.height-windowH)/2;
+	// set the url of the page to show in the popup
+	var urlPop = "http://utyp.net/pictcha-help.html"
+	// set the title of the page
+	var title =  "PICTCHA Form Spam Protection - HELP"
+	// set this to true if the popup should close
+	// upon leaving the launching page; else, false
+	var autoclose = true
+	s = "width="+windowW+",height="+windowH;
+	var beIE = document.all?true:false
+	  if (beIE){
+		NFW = window.open("","popFrameless",'toolbar=0,status=0,filemenu=0,scrolling=0,left=0,top=0,'+s) 
+		NFW.blur()
+		window.focus()       
+		NFW.resizeTo(windowW,windowH)
+		NFW.moveTo(windowX,windowY)
+		var frameString=""+
+	"<html>"+
+	"<head>"+
+	"<title>"+title+"</title>"+
+	"</head>"+
+	"<frameset rows='*,0' framespacing=0 border=0 frameborder=0>"+
+	"<frame name='top' src='"+urlPop+"' scrolling=auto>"+
+	"<frame name='bottom' src='about:blank' scrolling='no'>"+
+	"</frameset>"+
+	"</html>"
+		NFW.document.open();
+		NFW.document.write(frameString)
+		NFW.document.close()
+	  } else {
+		NFW=window.open(urlPop,"popFrameless",'toolbar=0,status=0,filemenu=0,scrolling=0,left=0,top=0,'+s) 
+		NFW.blur()
+		window.focus() 
+		NFW.resizeTo(windowW,windowH)
+		NFW.moveTo(windowX,windowY)
+	  }   
+	  NFW.focus()   
+	  if (autoclose){
+		window.onunload = function(){NFW.close()}
+	  }
+	}
+	document.write('<br> Question: <a href="javascript:openFrameless()">What</a>\'s this picture?<br>');
+	</script>
+	<noscript>
+		<br> Question: <a href="http://utyp.net/pictcha-help.html" target="pictcha">What</a>\'s this picture?<br>
+	</noscript>
 	<input type="text" id="inputOr" name="inputOr" SIZE="15" maxlength="25" /><br>
-	<input type="submit" value="send" />
+	<input type="submit" tabindex="5" value="Submit Comment" /></center>
 
 <?php
 }

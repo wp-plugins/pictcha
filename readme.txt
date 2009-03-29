@@ -10,8 +10,8 @@ Pictcha is a very unique & secure CAPTCHA.
 
 == Description ==
 
-UTYP Pictcha is a protection in a form of an image retrieved from UTYP engine, which can be embedded inside web forms, and which will filter out spams.
-When someone uses UTYP Pictcha the UTYP engine learns and gets more accurate. 
+Pictcha is a protection in a form of an image retrieved from [UTYP engine](http://utyp.net/ "UTYP Main Page"), which can be embedded inside web forms, and which will filter out spams.
+When someone uses UTYP Pictcha, the UTYP engine learns and gets more accurate. 
 
 [Click here](http://utyp.net/pictcha-sample.php "Pictcha Demo") to see Pictcha in action.
 
